@@ -1,4 +1,4 @@
-@include('layout.header')
+@include('main.layout.header')
 <style>
     .popover-title {
         color: white;
@@ -7,9 +7,9 @@
     }
 </style>
 <body>
-@include('layout.sidebar')
+@include('main.layout.sidebar')
 <div class="container-fluid">
-    @include('layout.logo')
+    @include('main.layout.logo')
     <div class="row middle">
         <div class="col-lg-1 hidden-md hidden-sm hidden-xs"></div>
         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
@@ -95,11 +95,11 @@
             </div>
         </div>
     </div>
-    @include('layout.footer')
+    @include('main.layout.footer')
     <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     </div>
 </div>
-@include('layout.analytics')
+@include('main.layout.analytics')
 <script>
     $('[data-toggle="popover"]').popover()
 </script>

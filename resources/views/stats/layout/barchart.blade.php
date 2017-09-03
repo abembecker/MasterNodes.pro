@@ -24,7 +24,7 @@
                     ],
                     borderWidth: 1,
                     data: [
-                        @foreach ($blockdetails as $value)
+                        @foreach ($stats['blockdetails'] as $value)
                         {!! $value['percent'] !!},
                         @endforeach
                     ],

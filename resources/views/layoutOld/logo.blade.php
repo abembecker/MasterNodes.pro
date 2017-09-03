@@ -13,7 +13,7 @@
             1AYcZq9qcNcF5yaBb1jWsLn9KSF2UDAJzq
         </a><Br>
         <a class="twitter-follow-button"
-           href="https://twitter.com/TwitterDev">
+           href="https://twitter.com/MasterNodesPro">
             Follow @MasterNodesPro</a>
     </div>
 </div>
