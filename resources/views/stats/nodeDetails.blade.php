@@ -10,7 +10,7 @@
             City: {!! $mnl['ipData']['city'] !!}<br>
             Region: {!! $mnl['ipData']['region_name'] !!}<br>
             Country: {!! $mnl['ipData']['country_name'] !!}<br>
-            Total Generated: {!! $mnl['total'] !!} {!! strtoupper(env('COIN')) !!}<br>
+            Total Generated: {!! $mnl['total'] !!} {!! strtoupper($stats['coinData']['coin']) !!}<br>
         </div>
     </div>
 </div>

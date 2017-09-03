@@ -11,6 +11,9 @@
            data-toggle="popover" data-trigger="hover" title="bitcoin address"
            data-html="true" data-content="<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=1AYcZq9qcNcF5yaBb1jWsLn9KSF2UDAJzq' width='150'>">
             1AYcZq9qcNcF5yaBb1jWsLn9KSF2UDAJzq
-        </a>
+        </a><Br>
+        <a class="twitter-follow-button"
+           href="https://twitter.com/MasterNodesPro">
+            Follow @MasterNodesPro</a>
     </div>
 </div>

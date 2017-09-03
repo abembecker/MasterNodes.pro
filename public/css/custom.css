@@ -89,7 +89,7 @@ footer {
 }
 
 .blockdetails {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 .blockdetails > div {
@@ -230,9 +230,54 @@ table.display tbody tr:hover td {
 }
 
 .no-padding {
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
+
+.mstr-grid-wrapper{
+    border:2px solid #E4E6EB;
+    border-radius: 10px;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    min-width:285px;
+}
+
+.mstr-top-left-quad{
+    font-size:12px;
+    line-height:1.45em;
+    padding: 1em;
+}
+
+.mstr-coin-name{
+    line-height:30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mstr-coin-current-value{
+    font-size: 16px;
+    font-weight: bold;
+    color: #78FEAB;
+}
+
+.mstr-coin-pct-chg{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mstr-coin-spon{
+    color: #af7117;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mstr-coin-spon-wrapper{
+    border:1px solid #E4E6EB;
+}
+
+.mstr-coin-table{
+    padding: .5em;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 750px) {
 

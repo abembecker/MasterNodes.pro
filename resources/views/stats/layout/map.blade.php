@@ -31,11 +31,13 @@
     }
 
     var beaches = [
-            @foreach($mnl as $key => $value)
-        ['{{$value['addr']}}',{!! $value['ipData']['latitude'] !!},{!! $value['ipData']['longitude'] !!}, @if($value['status'] == "NEW") {!! $key+200 !!} @elseif($value['status'] == "active") {!! $key+100 !!} @else {!! $key !!} @endif, '{{$value['status']}}'],
-        @endforeach
+            @foreach($stats['masterNodeList']['list'] as $key => $keyValue)
+                @if (isset($keyValue['latitude']))
+                    ['{{$keyValue['addr']}}',{!! $keyValue['latitude'] !!},{!! $keyValue['longitude'] !!}, @if(strtoupper($keyValue['status']) === "NEW") {!! $key+200 !!} @elseif(strtoupper($keyValue['status']) === "ENABLED") {!! $key+100 !!} @else {!! $key !!} @endif, '{!! strtoupper($keyValue['status']) !!}'],
+                @endif
+            @endforeach
     ];
-
+    console.log(beaches);
     function setMarkers(map) {
         var shape = {
             coords: [1, 1, 1, 20, 18, 20, 18, 1],
@@ -55,7 +57,7 @@
         };
         for (var i = 0; i < beaches.length; i++) {
             var beach = beaches[i];
-            if (beach[4] == "ACTIVE") {
+            if (beach[4] === "ENABLED") {
                 var marker = new google.maps.Marker({
                     position: {lat: beach[1], lng: beach[2]},
                     map: map,
@@ -64,7 +66,7 @@
                     zIndex: beach[3]
                 });
             }
-            if (beach[4] == "NEW") {
+            if (beach[4] === "NEW") {
                 var marker = new google.maps.Marker({
                     position: {lat: beach[1], lng: beach[2]},
                     map: map,
@@ -72,8 +74,7 @@
                     title: beach[0],
                     zIndex: beach[3]
                 });
-            }
-            if (beach[4] == "OFFLINE") {
+            } else {
                 var marker = new google.maps.Marker({
                     position: {lat: beach[1], lng: beach[2]},
                     map: map,
@@ -91,7 +92,7 @@
         }
     }
     function clickMe(key) {
-        $('#mainModal').load('{!! route('nodedetails') !!}/?addr=' + key);
+        $('#mainModal').load('{!! route('nodedetails', $coin) !!}/?addr=' + key);
         $('#mainModal').modal('show')
     }
 </script>

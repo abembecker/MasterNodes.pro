@@ -5,7 +5,7 @@
     var ctxd4 = $("#do4Chart");
 
 		<?php $i = 1; ?>
-            @foreach ($country as $key => $value)
+            @foreach ($stats['masterNodeListCountry']['sortlist'] as $key => $value)
             @if ($i <= 4)
     var datadc{!! $i !!} = [{!! $value['countb'] !!},{!! $value['count'] !!}];
             @endif

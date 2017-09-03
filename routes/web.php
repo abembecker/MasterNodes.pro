@@ -10,14 +10,36 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', array('uses' => 'coin@index'));
-Route::get('/active', array('uses' => 'coin@active'));
-Route::get('/active/{coin}', array('uses' => 'coin@activeCoin'));
-Route::get('/soon', array('uses' => 'coin@soon'));
-Route::get('/soon/{coin}', array('uses' => 'coin@soonCoin'));
-Route::get('/donate', array('uses' => 'coin@donate'));
-Route::get('/donate/{coin}', array('uses' => 'coin@donateCoin'));
+Route::group(array('domain' => 'masternodes.pro'), function() {
+	Route::get('/', array('uses' => 'coin@index'));
+	Route::get('/active', array('uses' => 'coin@active'));
+	Route::get('/active/{coin}', array('uses' => 'coin@activeCoin'));
+	Route::get('/soon', array('uses' => 'coin@soon'));
+	Route::get('/soon/{coin}', array('uses' => 'coin@soonCoin'));
+	Route::get('/donate', array('uses' => 'coin@donate'));
+	Route::get('/donate/{coin}', array('uses' => 'coin@donateCoin'));
 Route::get('/callCoinAPIS', array('uses' => 'coin@callCoinAPIS'));
-Route::get('/CallCoinMarketCap', array('uses' => 'coin@CallCoinMarketCap'));
-Route::get('/getPrice/{coin}', array('uses' => 'coin@GetPrice'));
+//Route::get('/CallCoinMarketCap', array('uses' => 'coin@CallCoinMarketCap'));
+	Route::get('/getPrice/{coin}', array('uses' => 'coin@GetPrice'));
+//Route::get('/donateAPI', array('uses' => 'coin@donateCoinList'));
+	/*  Stats Pages */
+	Route::group(
+		['prefix' => '/stats/{coin}/api', 'middleware' => 'throttle:2'], function () {
+		Route::get('/datapack', array('uses' => 'stats@DataPack'));
+	}
+	);
+	Route::get('/stats/{coin}', array('as' => 'statsIndex', 'uses' => 'stats@index'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/advanced/list', array('as' => 'advlist', 'uses' => 'stats@moreList'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/advanced/stats', array('as' => 'advstats', 'uses' => 'stats@moreStats'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/advanced/map', array('as' => 'advmap', 'uses' => 'stats@moreMap'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/advanced/graph', array('as' => 'advgraph', 'uses' => 'stats@moreLineGraphs'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/advanced/graph/data/', array('as' => 'mlgdata', 'uses' => 'stats@moreLineGraphsData'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/nodedetails/', array('as' => 'nodedetails', 'uses' => 'stats@nodeDetails'))->middleware('throttle:6');
+});
+
+
+Route::group(array('domain' => '{account}.masternodes.pro'), function() {
+	Route::get('/', function ($account) {
+		return Redirect::to('http://masternodes.pro/stats/'.$account);
+	});
+});
