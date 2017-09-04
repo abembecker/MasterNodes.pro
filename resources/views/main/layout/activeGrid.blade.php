@@ -15,35 +15,35 @@
             <div style="text-align:center;padding:5px 0px;width:33%;"><a href="https://masternodes.pro/stats/{!! strtolower($one['coin']) !!}"><img src="{!! $one['logo'] !!}" width="50vw"></a></div>
         </div>
         <div style="border-top: 1px solid #E4E6EB;text-align:center;clear:both;font-size:10px;font-style:italic;padding:5px 0; color: #ffffff">
-            Notes: @if(isset($one['notes'])) <span style="color:red;">{!! $one['notes'] !!}</span> @else <br> @endif
+            {!! strtoupper(__('main.notes')) !!}: @if(isset($one['notes'])) <span style="color:red;">{!! $one['notes'] !!}</span> @else <br> @endif
         </div>
         <div style="border-top: 1px solid #E4E6EB;text-align:center;clear:both;font-size:10px;font-style:italic;padding:5px 0;">
-            Coin Supply: {!! number_format($one['coin_supply'],0,'.',',') !!}
+            {!! ucwords(__('main.coinSupply')) !!}: {!! number_format($one['coin_supply'],0,'.',',') !!}
         </div>
         <div style="border-top: 1px solid #E4E6EB;text-align:center;clear:both;font-size:10px;font-style:italic;padding:5px 0;">
-            MarketCap: ${!! number_format($one['cmc']['market_cap_usd'],2,'.',',') !!} USD
+            {!! ucwords(__('main.marketCap')) !!}: ${!! number_format($one['cmc']['market_cap_usd'],2,'.',',') !!} USD
         </div>
         <div style="border-top: 1px solid #E4E6EB;clear:both;">
-            <div style="text-align:center;float:left;width:50%;font-size:12px;padding:12px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Total Master Nodes <br><br> <span style="font-size: 17px; ">{!! $one['totalMasterNodes'] !!}</span></div>
-            <div style="text-align:center;float:left;width:50%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Coins Locked <br><br> <span
+            <div style="text-align:center;float:left;width:50%;font-size:12px;padding:12px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.totalMasterNodes')) !!} <br><br> <span style="font-size: 17px; ">{!! $one['totalMasterNodes'] !!}</span></div>
+            <div style="text-align:center;float:left;width:50%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.coinsLocked')) !!} <br><br> <span
                         style="font-size: 14px; ">{!! number_format($one['totalMasterNodes'] * $one['masterNodeCoinsRequired'],'0','',',') !!} @if ($one['coin_supply'] > 0)({!! number_format(((($one['totalMasterNodes'] * $one['masterNodeCoinsRequired']) / $one['coin_supply'] ) * 100),'2','.',',') !!}%)@endif<Br></span></div>
         </div>
         <div style="border-top: 1px solid #E4E6EB;clear:both;">
-            <div style="text-align:center;float:left;width:33%;font-size:12px;padding:12px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Required Coin's <br><br> <span style="font-size: 17px; ">{!! $one['masterNodeCoinsRequired'] !!}</span></div>
-            <div style="text-align:center;float:left;width:34%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Node Worth <br><br> <span
+            <div style="text-align:center;float:left;width:33%;font-size:12px;padding:12px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.requiredCoins')) !!} <br><br> <span style="font-size: 17px; ">{!! $one['masterNodeCoinsRequired'] !!}</span></div>
+            <div style="text-align:center;float:left;width:34%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.nodeWorth')) !!} <br><br> <span
                         style="font-size: 14px; ">${!! number_format($one['cmc']['price_usd'] * $one['masterNodeCoinsRequired'],2,'.','') !!}</span></div>
             <div style="text-align:center;float:left;width:33%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;">
-                ROI % <Br><br><span style="font-size: 20px; color: #FCB043">{!!  number_format($one['realRoi'],2,'.','') !!}%</span>
+                {!! strtoupper(__('main.roi')) !!} % <Br><br><span style="font-size: 20px; color: #FCB043">{!!  number_format($one['realRoi'],2,'.','') !!}%</span>
             </div>
         </div>
         <div style="border-top: 1px solid #E4E6EB;clear:both;">
-            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Daily <br><br> <span style="font-size: 17px; ">${!! number_format($one['income']['daily'],2,'.','') !!}</span></div>
-            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Weekly <br><br> <span style="font-size: 14px; ">${!! number_format($one['income']['weekly'],2,'.','') !!}</span></div>
-            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> Monthly <br><br> <span style="font-size: 14px; ">${!! number_format($one['income']['monthly'],2,'.','') !!}</span></div>
-            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0 16px 0;line-height:1.25em;"> Yearly <br><br> <span style="font-size: 14px; ">${!! number_format($one['income']['yearly'],2,'.','') !!}</span></div>
+            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.daily')) !!} <br><br> <span style="font-size: 17px; ">${!! number_format($one['income']['daily'],2,'.','') !!}</span></div>
+            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.weekly')) !!} <br><br> <span style="font-size: 14px; ">${!! number_format($one['income']['weekly'],2,'.','') !!}</span></div>
+            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0 16px 0;border-right:1px solid #E4E6EB;line-height:1.25em;"> {!! ucwords(__('main.monthly')) !!} <br><br> <span style="font-size: 14px; ">${!! number_format($one['income']['monthly'],2,'.','') !!}</span></div>
+            <div style="text-align:center;float:left;width:25%;font-size:12px;padding:12px 0 16px 0;line-height:1.25em;"> {!! ucwords(__('main.yearly')) !!} <br><br> <span style="font-size: 14px; ">${!! number_format($one['income']['yearly'],2,'.','') !!}</span></div>
         </div>
         <div style="border-top: 1px solid #E4E6EB;text-align:center;clear:both;font-size:10px;font-style:italic;padding:5px 0;">
-            Last Updated <br>{!! $one['lastUpdated'] !!}
+            {!! ucwords(__('main.lastUpdated')) !!} <br>{!! $one['lastUpdated'] !!}
         </div>
     </div>
 </div>

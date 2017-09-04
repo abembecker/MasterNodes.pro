@@ -17,7 +17,7 @@
         <div class="col-lg-1 hidden-md hidden-sm hidden-xs"></div>
     </div>
     <div class="row" style="margin-top: 50px;">
-        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="text-align: center;"><a href="https://www.vultr.com/?ref=6877914" target="_blank"><span style="font-size: 16px">Best VPS Hosting<br>for Masternodes</span><br><img src="https://www.vultr.com/media/banner_4.png" width="160"
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="text-align: center;"><a href="https://www.vultr.com/?ref=6877914" target="_blank"><span style="font-size: 16px">{!! __('main.vultr') !!}</span><br><img src="https://www.vultr.com/media/banner_4.png" width="160"
                                                                                                                                                                                                                                      height="600"></a></div>
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align: center;">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
@@ -40,32 +40,26 @@
                 <br><br><br>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
-                <div class="alert alert-info">Want your Coin Listed here? join us on
-                    <a href="https://join.slack.com/t/masternodespro/shared_invite/MjI5Mjc4MDY3ODc3LTE1MDMyNTk5ODQtMTYzMmM2ODcwYQ" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i>SLACK</a>
+                <div class="alert alert-info">{!! __('main.coinlisted') !!}
+                    <a href="https://join.slack.com/t/masternodespro/shared_invite/MjI5Mjc4MDY3ODc3LTE1MDMyNTk5ODQtMTYzMmM2ODcwYQ" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i>{!! strtoupper(__('main.slack')) !!}</a>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: center;">
                     <div class="btn-toolbar btn-group" role="toolbar">
-                        <a href="/?sort=roi&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'roi') active @endif">ROI %</a>
-                        <a href="/?sort=marketCap&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'marketCap') active @endif">Market Cap</a>
-                        <a href="/?sort=coinSupply&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinSupply') active @endif">Coin Supply</a>
-                        <a href="/?sort=totalMasterNodes&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'totalMasterNodes') active @endif">Total MasterNodes</a>
-                        <a href="/?sort=coinsLocked&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinsLocked') active @endif">Coins Locked</a>
+                        <a href="/?sort=roi&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'roi') active @endif">{!! strtoupper(__('main.roi')) !!} %</a>
+                        <a href="/?sort=marketCap&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'marketCap') active @endif">{!! ucwords(__('main.marketCap')) !!}</a>
+                        <a href="/?sort=coinSupply&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinSupply') active @endif">{!! ucwords(__('main.coinSupply')) !!}</a>
+                        <a href="/?sort=totalMasterNodes&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'totalMasterNodes') active @endif">{!! ucwords(__('main.totalMasterNodes')) !!}</a>
+                        <a href="/?sort=coinsLocked&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinsLocked') active @endif">{!! ucwords(__('main.coinsLocked')) !!}</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="text-align: center;">
                     <div class="btn-toolbar btn-group" role="toolbar">
-                        <a href="/?sort=dailyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'dailyRev') active @endif">Daily</a>
-                        <a href="/?sort=weeklyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'weeklyRev') active @endif">Weekly</a>
-                        <a href="/?sort=monthlyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'monthlyRev') active @endif">Monthly</a>
-                        <a href="/?sort=yearlyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'yearlyRev') active @endif">Yearly</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="text-align: center;">
-                    <div class="btn-toolbar btn-group" role="toolbar">
-                        <a href="/?sort={!! $clselect !!}&view=grid" type="button" class="btn btn-primary @if ($clview === 'grid') active @endif"><i class="fa fa-th" aria-hidden="true"></i></a>
-                        {{--<a href="/?sort={!! $clselect !!}&view=list" type="button" class="btn btn-primary @if ($clview === 'list') active @endif"><i class="fa fa-bars" aria-hidden="true"></i></a>--}}
+                        <a href="/?sort=dailyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'dailyRev') active @endif">{!! ucwords(__('main.daily')) !!}</a>
+                        <a href="/?sort=weeklyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'weeklyRev') active @endif">{!! ucwords(__('main.weekly')) !!}</a>
+                        <a href="/?sort=monthlyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'monthlyRev') active @endif">{!! ucwords(__('main.monthly')) !!}</a>
+                        <a href="/?sort=yearlyRev&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'yearlyRev') active @endif">{!! ucwords(__('main.yearly')) !!}</a>
                     </div>
                 </div>
             </div>
@@ -168,6 +162,7 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align: center;">
+                    {!! __('main.vultr') !!}
                     <script data-cfasync=false src="//s.ato.mx/p.js#id=2194065&size=728x90"></script>
                 </div>
                 <div class="col-lg-4 col-md-4 hidden-sm hidden-xs" style="text-align: center;">
@@ -178,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="text-align: center;"><a href="https://www.vultr.com/?ref=6877914" target="_blank"><span style="font-size: 16px">Best VPS Hosting<br>for Masternodes</span><br><img src="https://www.vultr.com/media/banner_4.png" width="160"
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="text-align: center;"><a href="https://www.vultr.com/?ref=6877914" target="_blank"><span style="font-size: 16px">{!! __('main.vultr') !!}<br><img src="https://www.vultr.com/media/banner_4.png" width="160"
                                                                                                                                                                                                                                      height="600"></a></div>
     </div>
     @include('main.layout.footer')

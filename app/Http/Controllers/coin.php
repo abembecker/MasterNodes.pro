@@ -41,7 +41,7 @@ class coin extends Controller
 					$data['coinList'][$one['coin']]['name']                    = $one['name'];
 					$data['coinList'][$one['coin']]['roi']                     = $coinData['last24Hours']['perNode']['values']['price_usd']['roi'];
 					$data['coinList'][$one['coin']]['realRoi']                 = $data['coinList'][$one['coin']]['roi'];
-					$data['coinList'][$one['coin']]['logo']                    = $one['logo'];
+					$data['coinList'][$one['coin']]['logo']                    = $coinData['coinData']['logo'];
 					if (isset($one['ads'])) {
 						$data['coinList'][$one['coin']]['ads'] = $one['ads'];
 						$data['coinList'][$one['coin']]['url'] = $one['url'];
@@ -252,14 +252,6 @@ class coin extends Controller
 	{
 		$i             = 0;
 		$coin          = [];
-		$coin['name']  = 'TerraCoin';
-		$coin['coin']  = 'trc';
-		$coin['url']   = 'http://www.terracoin.info/';
-		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/terracoin.png';
-		$coin['notes'] = 'Waiting for CodeBase updates of ActiveCoins';
-		$coins[$i]     = $coin;
-		$i++;
-		$coin          = [];
 		$coin['name']  = 'MarteXcoin';
 		$coin['coin']  = 'mxt';
 		$coin['url']   = 'http://martexcoin.org/';
@@ -300,6 +292,14 @@ class coin extends Controller
 		$coins[$i]     = $coin;
 		$i++;
 		$coin          = [];
+		$coin['name']  = 'TerraCoin';
+		$coin['coin']  = 'trc';
+		$coin['url']   = 'http://www.terracoin.info/';
+		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/terracoin.png';
+		$coin['notes'] = 'ONHOLD Waiting for HardFork to enable MasterNodes';
+		$coins[$i]     = $coin;
+		$i++;
+		$coin          = [];
 		$coin['name']  = 'PIECoin';
 		$coin['coin']  = 'PIE';
 		$coin['url']   = 'http://piecoin.info/';
@@ -337,6 +337,19 @@ class coin extends Controller
 		);
 		$i          = 0;
 		$ticker     = json_decode($resCMCCORE->getBody()->getContents(), true);
+
+		$coin                      = [];
+		$coin['name']              = 'MonacoCoin';
+		$coin['coin']              = 'XMCC';
+		$coin['url']               = 'http://www.monacocoin.net/';
+		$coin['logo']              = 'https://files.coinmarketcap.com/static/img/coins/128x128/monacocoin.png';
+		$coin['donate']['bitcoin'] = '1CzhURHzEpYfNZ9iFX71uCgzNYAEJ6y9cW';
+		$coin['current']           = (float)($this->getBalance($coin['donate']) * $ticker['USD']['15m']);
+		$coin['need']              = 400;
+		$coin['balance']           = $coin['need'] - $coin['current'];
+		$coins[$i]                 = $coin;
+		$i++;
+
 
 		$coin                      = [];
 		$coin['name']              = 'AmsterdamCoin';
