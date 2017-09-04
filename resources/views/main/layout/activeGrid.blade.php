@@ -4,7 +4,7 @@
             <div style="float:right;width:67%;border: 0px solid #000;text-align:center;padding:5px 0px;line-height:30px;">
                 <div>
                     <span style="font-size: 18px;">
-                        <a href="https://masternodes.pro/stats/{!! strtolower($one['coin']) !!}" style="text-decoration: none; color: rgb(66, 139, 202);">{!! $one['name'] !!} ({!! strtoupper($one['coin']) !!})</a>
+                        <a href="https://masternodes.pro/stats/{!! strtolower($one['coin']) !!}" style="text-decoration: none; color: rgb(66, 139, 202);">{!! $one['name'] !!} ({!! strtoupper($one['coin']) !!}) STATS</a>
                     </span>
                 </div>
                 <div>
