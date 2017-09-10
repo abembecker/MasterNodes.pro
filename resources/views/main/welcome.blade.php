@@ -18,7 +18,7 @@
         <div class="col-lg-1 hidden-md hidden-sm hidden-xs"></div>
     </div>
     <div class="row">
-        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs  text-center"><a href="https://www.vultr.com/?ref=6877914"><span>Best VPS Hosting<br>for Masternodes</span><br><img src="https://www.vultr.com/media/banner_4.png" width="160" height="600"></a></div>
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs  text-center"><script data-cfasync=false src="//s.ato.mx/p.js#id=2194065&size=160x600"></script></div>
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs  text-center"><a href="https://www.vultr.com/?ref=6877914"><span>Best VPS Hosting<br>for Masternodes</span><br><img src="https://www.vultr.com/media/banner_4.png" width="160" height="600"></a></div>
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs  text-center"><script data-cfasync=false src="//s.ato.mx/p.js#id=2194065&size=160x600"></script></div>
     </div>
     @include('main.layout.footer')
     <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
