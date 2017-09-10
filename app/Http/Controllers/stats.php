@@ -103,6 +103,20 @@ class stats extends Controller
 		return view('stats.stats', $ret);
 	}
 
+	public function guides($coin)
+	{
+		$ret['coin']                        = strtolower($coin);
+		$es                                 = new elasticSearch();
+		$config['ES_coin']                  = strtolower($coin);
+		$config['ES_type']                  = 'basestats';
+		$search['size']                     = '1';
+		$search['sort'][0]['time']['order'] = 'desc';
+		$mnData                             = json_decode($es->esSEARCH($search, $config), true);
+		$ret['stats']                       = $mnData[0]['_source'];
+		return view('stats.guides', $ret);
+	}
+
+
 	public function nodeDetails($coin)
 	{
 		$ret['coin']       = strtolower($coin);
