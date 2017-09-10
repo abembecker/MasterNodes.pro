@@ -37,6 +37,7 @@ Route::group(
 	Route::get('/stats/{coin}/advanced/graph', array('as' => 'advgraph', 'uses' => 'stats@moreLineGraphs'))->middleware('throttle:6');
 	Route::get('/stats/{coin}/advanced/graph/data/', array('as' => 'mlgdata', 'uses' => 'stats@moreLineGraphsData'))->middleware('throttle:6');
 	Route::get('/stats/{coin}/nodedetails/', array('as' => 'nodedetails', 'uses' => 'stats@nodeDetails'))->middleware('throttle:6');
+	Route::get('/stats/{coin}/guides/', array('as' => 'guides', 'uses' => 'stats@guides'))->middleware('throttle:6');
 }
 );
 
