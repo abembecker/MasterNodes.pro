@@ -255,6 +255,7 @@ class coin extends Controller
 		$i++;
 		$coin          = [];
 		$coin['name']  = 'Vsync';
+		$coin['cmc']   = 'Vsync-vsx';
 		$coin['coin']  = 'VSX';
 		$coin['url']   = 'https://bitcointalk.org/index.php?topic=2133048.0';
 		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/vsync.png';
@@ -656,7 +657,7 @@ class coin extends Controller
 				}
 			}
 			foreach ($coinList as $one) {
-				if (strtoupper($coin['name']) === strtoupper($one['name'])) {
+				if (strtoupper($coin['name']) === strtoupper($one['cmc'])) {
 					$coin['lastUpdate'] = (float)time();
 					$config['ES_coin']  = strtolower($one['coin']);
 					$config['ES_type']  = 'coinmarketcap';
@@ -664,10 +665,20 @@ class coin extends Controller
 					$es->esPUT($coin, $config);
 					Storage::put('' . strtolower($one['coin']) . '-CMC.json', json_encode($coin));
 					$NewCore[] = $coin;
+				} else {
+					if (strtoupper($coin['name']) === strtoupper($one['name'])) {
+						$coin['lastUpdate'] = (float)time();
+						$config['ES_coin']  = strtolower($one['coin']);
+						$config['ES_type']  = 'coinmarketcap';
+						$config['ES_id']    = time();
+						$es->esPUT($coin, $config);
+						Storage::put('' . strtolower($one['coin']) . '-CMC.json', json_encode($coin));
+						$NewCore[] = $coin;
+					}
 				}
 			}
 			foreach ($ComingSoonCoinList as $one) {
-				if (strtoupper($coin['name']) === strtoupper($one['name'])) {
+				if (strtoupper($coin['name']) === strtoupper($one['cmc'])) {
 					$coin['lastUpdate'] = (float)time();
 					$config['ES_coin']  = strtolower($one['coin']);
 					$config['ES_type']  = 'coinmarketcap';
@@ -675,6 +686,16 @@ class coin extends Controller
 					$es->esPUT($coin, $config);
 					Storage::put('' . strtolower($one['coin']) . '-CMC.json', json_encode($coin));
 					$NewCore[] = $coin;
+				} else {
+					if (strtoupper($coin['name']) === strtoupper($one['name'])) {
+						$coin['lastUpdate'] = (float)time();
+						$config['ES_coin']  = strtolower($one['coin']);
+						$config['ES_type']  = 'coinmarketcap';
+						$config['ES_id']    = time();
+						$es->esPUT($coin, $config);
+						Storage::put('' . strtolower($one['coin']) . '-CMC.json', json_encode($coin));
+						$NewCore[] = $coin;
+					}
 				}
 			}
 		}
