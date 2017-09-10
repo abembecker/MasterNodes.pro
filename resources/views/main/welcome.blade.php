@@ -52,6 +52,7 @@
                         <a href="/?sort=coinSupply&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinSupply') active @endif">{!! ucwords(__('main.coinSupply')) !!}</a>
                         <a href="/?sort=totalMasterNodes&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'totalMasterNodes') active @endif">{!! ucwords(__('main.totalMasterNodes')) !!}</a>
                         <a href="/?sort=coinsLocked&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinsLocked') active @endif">{!! ucwords(__('main.coinsLocked')) !!}</a>
+                        <a href="/?sort=coinsLockedPercent&view={!! $clview !!}" type="button" class="btn btn-primary @if ($clselect === 'coinsLockedPercent') active @endif">{!! ucwords(__('main.coinsLockedPercent')) !!}</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="text-align: center;">
