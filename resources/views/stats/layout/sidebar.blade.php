@@ -5,5 +5,6 @@
     {{--<a href="{!! route('advgraph') !!}"><i class="fa fa-line-chart" aria-hidden="true"></i> Advanced Graph</a>--}}
     <a href="{!! route('advmap', $coin) !!}"><i class="fa fa-map" aria-hidden="true"></i> Advanced Map</a>
     {{--<a href="{!! route('advlist') !!}"><i class="fa fa-list" aria-hidden="true"></i> Advanced Node List</a>--}}
+    <a href="{!! route('guides', $coin) !!}"><i class="fa fa-file-text" aria-hidden="true"></i> Guides</a>
 </div>
 <span onclick="openNav()" class="sidebarOpen"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></span>

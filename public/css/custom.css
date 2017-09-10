@@ -1,3 +1,64 @@
+/* COLORS */
+.light-blue{
+    color: #3F88C5;
+}
+
+.cobalt{
+    color: #0471A6;
+}
+
+.red{
+    color: #FF3C38;
+}
+
+.orange{
+    color: #FCB043;
+}
+
+.light-green{
+    color: #78FEAB;
+}
+
+.green{
+    color: #009933;
+}
+
+.mauve{
+    color: #AC80A0;
+}
+
+.purple{
+    color: #7e7ee8;
+}
+
+.dark-purple{
+    color: #292959;
+}
+
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+body {
+    color: #FFFFFF;
+    background-color: #041019;
+    font-size: 14px;
+}
+
 #map {
     height: 300px;
     overflow: hidden;
@@ -8,12 +69,21 @@
 #lineChart {
     height: 300px;
 }
-body {
-    color: #FFFFFF;
-    background-color: #041019;
-    font-family: 'Roboto', sans-serif;
-    font-size:13px;
+
+.unica{
+    font-family: 'Unica One', cursive;
 }
+
+.volk{
+    font-family: 'Volkhov', serif;
+}
+
+.exo{
+    font-family: 'Exo', sans-serif;
+}
+
+
+
 .panel-transparent .panel-heading{
     background: rgba(122, 130, 136, 0.2)!important;
 }
@@ -82,6 +152,13 @@ footer {
     height: 90px;
 }
 
+.mstr-main-logo{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #7e7ee8;
+    font-family: 'Exo', sans-serif;
+}
+
 .Labels {
     font-weight: 900;
     font-size: 20pt;
@@ -89,7 +166,7 @@ footer {
 }
 
 .blockdetails {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .blockdetails > div {
@@ -176,33 +253,6 @@ table.display tbody tr:hover td {
     color: #000000 !important;
 }
 
-.orange {
-    color: #FF8B41;
-}
-
-.blue {
-    color: #1D82AD
-}
-
-.green {
-    color: #78FEAB;
-}
-
-.darkGreen {
-    color: #008080
-}
-
-.purple {
-    color: #6E20F3;
-}
-
-.babyBlue {
-    color: #4EBDE4;
-}
-
-.white {
-
-}
 /* pi */
 
 .pibardata {
@@ -230,52 +280,8 @@ table.display tbody tr:hover td {
 }
 
 .no-padding {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.mstr-grid-wrapper{
-    border:2px solid #E4E6EB;
-    border-radius: 10px;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    min-width:285px;
-}
-
-.mstr-top-left-quad{
-    font-size:12px;
-    line-height:1.45em;
-    padding: 1em;
-}
-
-.mstr-coin-name{
-    line-height:30px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.mstr-coin-current-value{
-    font-size: 16px;
-    font-weight: bold;
-    color: #78FEAB;
-}
-
-.mstr-coin-pct-chg{
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.mstr-coin-spon{
-    color: #af7117;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.mstr-coin-spon-wrapper{
-    border:1px solid #E4E6EB;
-}
-
-.mstr-coin-table{
-    padding: .5em;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

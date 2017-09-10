@@ -3,8 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4826653235164092",
+            enable_page_level_ads: true
+        });
+    </script>
     <title>MasterNodes.pro</title>
     <link rel="shortcut icon" href="/img/MPlogo.png" />
 
@@ -13,7 +18,7 @@
     <script>
         WebFont.load({
             google: {
-                families: ['Raleway', 'Roboto', 'Oswald']
+                families: ['Raleway', 'Roboto', 'Oswald', 'Unica+One', 'Volkhov', 'Exo']
             }
         });
     </script>
@@ -29,6 +34,8 @@
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js" integrity="sha256-jYMHiFJgIHHSIyPp1uwI5iv5dYgQZIxaQ4RwnpEeEDQ=" crossorigin="anonymous"></script>
     <!-- Styles -->
+    <link href="/css/app.css?ts={!! strtotime('-1 hour') !!}" rel="stylesheet" type="text/css">
     <link href="/css/custom.css?ts={!! strtotime('-1 hour') !!}" rel="stylesheet" type="text/css">
     <link href="/css/li.css?ts={!! strtotime('-1 hour') !!}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/main.js"></script>
 </head>
