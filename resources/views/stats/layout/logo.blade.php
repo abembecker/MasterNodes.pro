@@ -18,34 +18,34 @@
             <a href="https://masternodes.pro" target="_blank">MasterNodes.pro</a>
         </div>
     </div>
-    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div style="display: inline-block;">
             <div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->BTC Price</div>
             <div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_btc'],'8','.',',') !!}</span></div>
         </div>
     </div>
-    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
         <div style="display: inline-block;">
             <div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->USD Price</div>
             <div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_usd'],'2','.',',') !!}</span></div>
         </div>
     </div>
-    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-        <div style="display: inline-block;">
-            <div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->GBP Price</div>
-            <div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_gbp'],'2','.',',') !!}</span></div>
-        </div>
-    </div>
-    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-        <div style="display: inline-block;">
-            <div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->AUD Price</div>
-            <div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_aud'],'2','.',',') !!}</span></div>
-        </div>
-    </div>
-    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-        <div style="display: inline-block;">
-            <div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->CNY Price</div>
-            <div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_cny'],'2','.',',') !!}</span></div>
-        </div>
-    </div>
+    {{--<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">--}}
+        {{--<div style="display: inline-block;">--}}
+            {{--<div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->GBP Price</div>--}}
+            {{--<div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_gbp'],'2','.',',') !!}</span></div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">--}}
+        {{--<div style="display: inline-block;">--}}
+            {{--<div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->AUD Price</div>--}}
+            {{--<div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_aud'],'2','.',',') !!}</span></div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">--}}
+        {{--<div style="display: inline-block;">--}}
+            {{--<div class="bardatatitle">{!! strtoupper($stats['coinData']['coin']) !!}->CNY Price</div>--}}
+            {{--<div class="bardatadata"><span class="green">{!! number_format($stats['price']['price_cny'],'2','.',',') !!}</span></div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 </div>

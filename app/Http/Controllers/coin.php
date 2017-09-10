@@ -15,10 +15,28 @@ class coin extends Controller
 
 	public function index()
 	{
-		$data     = null;
-		$type     = isset($_GET['sort']) ? $_GET['sort'] : 'roi';
-		$view     = isset($_GET['view']) ? $_GET['view'] : 'grid';
-		$sort     = 'roi';
+		$data = $this->generateData();
+		$sort = 'roi';
+		usort(
+			$data['coinList'], function ($a, $b) use ($sort) {
+			return $a[$sort] < $b[$sort];
+		}
+		);
+		$data['clselect']           = $sort;
+		$data['ComingSoonCoinList'] = $this->ComingSoonCoinList();
+		$data['donateCoinList']     = json_decode(Storage::get('donateCoins.json'), true);
+		if (is_array($data['donateCoinList'])) {
+			usort(
+				$data['donateCoinList'], function ($a, $b) {
+				return $a['balance'] > $b['balance'];
+			}
+			);
+		}
+		return view('main.welcome', $data);
+	}
+
+	private function generateData()
+	{
 		$coinList = $this->coinList();
 		foreach ($coinList as $one) {
 			if (Storage::exists('' . strtolower($one['coin']) . '.json')) {
@@ -47,6 +65,13 @@ class coin extends Controller
 				}
 			}
 		}
+		return $data;
+	}
+
+	public function sortActiveView()
+	{
+		$data = $this->generateData();
+		$type = isset($_GET['sort']) ? $_GET['sort'] : 'roi';
 		if ($type === 'roi') $sort = 'roi';
 		if ($type === 'marketCap') $sort = 'market_cap';
 		if ($type === 'coinSupply') $sort = 'coin_supply';
@@ -61,18 +86,8 @@ class coin extends Controller
 			return $a[$sort] < $b[$sort];
 		}
 		);
-		$data['clselect']           = $type;
-		$data['clview']             = $view;
-		$data['ComingSoonCoinList'] = $this->ComingSoonCoinList();
-		$data['donateCoinList']     = json_decode(Storage::get('donateCoins.json'), true);
-		if (is_array($data['donateCoinList'])) {
-			usort(
-				$data['donateCoinList'], function ($a, $b) {
-				return $a['balance'] > $b['balance'];
-			}
-			);
-		}
-		return view('main.welcome', $data);
+
+		return view('main.layout.activeCoinList', $data);
 	}
 
 	public function active()
@@ -190,7 +205,18 @@ class coin extends Controller
 					$contentCMC = (float)$res->getBody()->getContents();
 				}
 				catch (\Exception $e) {
-					$contentCMC = 0.00;
+					$contentCMC = 0;
+				}
+				if ($contentCMC === 0) {
+					try {
+						$res        = $client->request(
+							'GET', 'https://blockexplorer.com/api/addr/' . $value . '/totalReceived'
+						);
+						$contentCMC = (float)$res->getBody()->getContents();
+					}
+					catch (\Exception $e) {
+						$contentCMC = 0;
+					}
 				}
 				$total = $total + ($contentCMC / 100000000);
 			} else {
@@ -216,21 +242,15 @@ class coin extends Controller
 
 	public function ComingSoonCoinList()
 	{
-		$i             = 0;
+		$i = 0;
+
+
 		$coin          = [];
-		$coin['name']  = 'PepeCoin';
-		$coin['coin']  = 'pepe';
-		$coin['url']   = 'https://bitcointalk.org/index.php?topic=1391598.0';
-		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/memetic.png';
-		$coin['notes'] = 'Building Wallet';
-		$coins[$i]     = $coin;
-		$i++;
-		$coin          = [];
-		$coin['name']  = 'CoinonatX';
-		$coin['coin']  = 'xcxt';
-		$coin['url']   = 'http://coinonatx.com/';
-		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/coinonatx.png';
-		$coin['notes'] = 'Building Wallet';
+		$coin['name']  = 'InsaneCoin';
+		$coin['coin']  = 'INSN';
+		$coin['notes'] = 'Gathering Stats';
+		$coin['url']   = 'http://www.insanecoin.com/';
+		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/insanecoin-insn.png';
 		$coins[$i]     = $coin;
 		$i++;
 		$coin          = [];
@@ -238,7 +258,31 @@ class coin extends Controller
 		$coin['coin']  = 'VSX';
 		$coin['url']   = 'https://bitcointalk.org/index.php?topic=2133048.0';
 		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/vsync.png';
-		$coin['notes'] = 'Building Server';
+		$coin['notes'] = 'Gathering Stats';
+		$coins[$i]     = $coin;
+		$i++;
+		$coin          = [];
+		$coin['name']  = 'MonacoCoin';
+		$coin['coin']  = 'XMCC';
+		$coin['url']   = 'http://www.monacocoin.net/';
+		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/monacocoin.png';
+		$coin['notes'] = 'Gathering Stats';
+		$coins[$i]     = $coin;
+		$i++;
+		$coin          = [];
+		$coin['name']  = 'PepeCoin';
+		$coin['coin']  = 'pepe';
+		$coin['url']   = 'https://bitcointalk.org/index.php?topic=1391598.0';
+		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/memetic.png';
+		$coin['notes'] = 'Wallet Build Error';
+		$coins[$i]     = $coin;
+		$i++;
+		$coin          = [];
+		$coin['name']  = 'Flaxscript';
+		$coin['coin']  = 'flax';
+		$coin['url']   = 'http://flaxscript.org/';
+		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/flaxscript.png';
+		$coin['notes'] = 'Wallet Build Error';
 		$coins[$i]     = $coin;
 		$i++;
 		$coin          = [];
@@ -255,22 +299,6 @@ class coin extends Controller
 		$coin['url']   = 'http://piecoin.info/';
 		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/piecoin.png';
 		$coin['notes'] = 'ONHOLD Waiting for HardFork to enable MasterNodes';
-		$coins[$i]     = $coin;
-		$i++;
-		$coin          = [];
-		$coin['name']  = 'Flaxscript';
-		$coin['coin']  = 'flax';
-		$coin['url']   = 'http://flaxscript.org/';
-		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/flaxscript.png';
-		$coin['notes'] = 'ONHOLD Unable to build Wallet Need Dev Support';
-		$coins[$i]     = $coin;
-		$i++;
-		$coin          = [];
-		$coin['name']  = 'InsaneCoin';
-		$coin['coin']  = 'INSN';
-		$coin['notes'] = 'ONHOLD Per request from CoinDev';
-		$coin['url']   = 'http://www.insanecoin.com/';
-		$coin['logo']  = 'https://files.coinmarketcap.com/static/img/coins/128x128/insanecoin-insn.png';
 		$coins[$i]     = $coin;
 		$i++;
 		$coin          = [];
@@ -297,19 +325,6 @@ class coin extends Controller
 		$ticker     = json_decode($resCMCCORE->getBody()->getContents(), true);
 
 		$coin                      = [];
-		$coin['name']              = 'MonacoCoin';
-		$coin['coin']              = 'XMCC';
-		$coin['url']               = 'http://www.monacocoin.net/';
-		$coin['logo']              = 'https://files.coinmarketcap.com/static/img/coins/128x128/monacocoin.png';
-		$coin['donate']['bitcoin'] = '1CzhURHzEpYfNZ9iFX71uCgzNYAEJ6y9cW';
-		$coin['current']           = (float)($this->getBalance($coin['donate']) * $ticker['USD']['15m']);
-		$coin['need']              = 400;
-		$coin['balance']           = $coin['need'] - $coin['current'];
-		$coins[$i]                 = $coin;
-		$i++;
-
-
-		$coin                      = [];
 		$coin['name']              = 'AmsterdamCoin';
 		$coin['coin']              = 'AMS';
 		$coin['url']               = 'https://bitcointalk.org/index.php?topic=1152947.0';
@@ -320,6 +335,31 @@ class coin extends Controller
 		$coin['balance']           = $coin['need'] - $coin['current'];
 		$coins[$i]                 = $coin;
 		$i++;
+
+		$coin                      = [];
+		$coin['name']              = 'masternodecoin';
+		$coin['coin']              = 'MTNC';
+		$coin['url']               = 'https://bitcointalk.org/index.php?topic=2056867.0';
+		$coin['logo']              = 'https://files.coinmarketcap.com/static/img/coins/128x128/masternodecoin.png';
+		$coin['donate']['bitcoin'] = '1L81WDgo8RVnZ4AvB8XtzBZ51idesL4CQb';
+		$coin['current']           = (float)($this->getBalance($coin['donate']) * $ticker['USD']['15m']);
+		$coin['need']              = 400;
+		$coin['balance']           = $coin['need'] - $coin['current'];
+		$coins[$i]                 = $coin;
+		$i++;
+
+//		$coin                      = [];
+//		$coin['name']              = 'AmsterdamCoin';
+//		$coin['coin']              = 'AMS';
+//		$coin['url']               = 'https://bitcointalk.org/index.php?topic=1152947.0';
+//		$coin['logo']              = 'https://files.coinmarketcap.com/static/img/coins/128x128/amsterdamcoin.png';
+//		$coin['donate']['bitcoin'] = '1NehzUSWN4PXsgacywY77LDujQCswAy8iH';
+//		$coin['current']           = (float)($this->getBalance($coin['donate']) * $ticker['USD']['15m']);
+//		$coin['need']              = 400;
+//		$coin['balance']           = $coin['need'] - $coin['current'];
+//		$coins[$i]                 = $coin;
+//		$i++;
+
 
 		$coin                      = [];
 		$coin['name']              = 'Bitradio';
@@ -370,6 +410,11 @@ class coin extends Controller
 		$coin         = [];
 		$coin['name'] = 'MarteXcoin';
 		$coin['coin'] = 'mxt';
+		$coins[$i]    = $coin;
+		$i++;
+		$coin         = [];
+		$coin['name'] = 'CoinonatX';
+		$coin['coin'] = 'xcxt';
 		$coins[$i]    = $coin;
 		$i++;
 		$coin           = [];
@@ -511,7 +556,7 @@ class coin extends Controller
 		foreach ($coinList as $one) {
 			$this->coinApi($one['coin']);
 		}
-		$coinDonateList = $this->donateCoinList();
+//		$coinDonateList = $this->donateCoinList();
 	}
 
 	public function coinApi($name)
