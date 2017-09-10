@@ -12,6 +12,7 @@ return [
 	'coinSupply' => 'coin supply',
 	'totalMasterNodes' => 'total masternodes',
 	'coinsLocked' => 'coins locked',
+	'coinsLockedPercent' => 'coins locked %',
 	'requiredCoins' => 'required coin\'s',
 	'notes' => 'notes',
 	'nodeWorth' => 'node worth',

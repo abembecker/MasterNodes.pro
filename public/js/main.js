@@ -22,6 +22,11 @@ $( document ).ready(function() {
             "url": "?sort=totalMasterNodes&view=grid"
         },
         {
+            "name": "coinsLockedPercent",
+            "label": "Coins Locked%",
+            "url": "?sort=coinsLockedPercent&view=grid"
+        },
+        {
             "name": "coinsLocked",
             "label": "Coins Locked",
             "url": "?sort=coinsLocked&view=grid"

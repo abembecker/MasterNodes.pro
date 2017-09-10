@@ -50,6 +50,7 @@ class coin extends Controller
 				$data['coinList'][$one['coin']]['coin_supply']             = $coinData['cmcData']['available_supply'];
 				$data['coinList'][$one['coin']]['percent_change_24h']      = $coinData['cmcData']['percent_change_24h'];
 				$data['coinList'][$one['coin']]['coinLocked']              = $coinData['coinLocked']['total'];
+				$data['coinList'][$one['coin']]['coinLockedPercent']       = $coinData['coinLocked']['total'] / $coinData['cmcData']['available_supply'] * 100;
 				$data['coinList'][$one['coin']]['dailyRev']                = $coinData['last24Hours']['perNode']['values']['price_usd']['daily'];
 				$data['coinList'][$one['coin']]['weeklyRev']               = $coinData['last24Hours']['perNode']['values']['price_usd']['weekly'];
 				$data['coinList'][$one['coin']]['monthlyRev']              = $coinData['last24Hours']['perNode']['values']['price_usd']['monthly'];
@@ -77,6 +78,7 @@ class coin extends Controller
 		if ($type === 'coinSupply') $sort = 'coin_supply';
 		if ($type === 'totalMasterNodes') $sort = 'totalMasterNodes';
 		if ($type === 'coinsLocked') $sort = 'coinLocked';
+		if ($type === 'coinsLockedPercent') $sort = 'coinLockedPercent';
 		if ($type === 'dailyRev') $sort = 'dailyRev';
 		if ($type === 'weeklyRev') $sort = 'weeklyRev';
 		if ($type === 'monthlyRev') $sort = 'monthlyRev';
