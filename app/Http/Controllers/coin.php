@@ -33,7 +33,7 @@ class coin extends Controller
 					$data['coinList'][$one['coin']]['coin_supply']             = $coinData['cmcData']['available_supply'];
 					$data['coinList'][$one['coin']]['percent_change_24h']      = $coinData['cmcData']['percent_change_24h'];
 					$data['coinList'][$one['coin']]['coinLocked']              = $coinData['coinLocked']['total'];
-                    $data['coinList'][$one['coin']]['coinLockedPercent']       = $coinData['coinLocked']['total'] / $coinData['cmcData']['available_supply'] * 100;
+					$data['coinList'][$one['coin']]['coinLockedPercent']       = $coinData['coinLocked']['total'] / $coinData['cmcData']['available_supply'] * 100;
 					$data['coinList'][$one['coin']]['dailyRev']                = $coinData['last24Hours']['perNode']['values']['price_usd']['daily'];
 					$data['coinList'][$one['coin']]['weeklyRev']               = $coinData['last24Hours']['perNode']['values']['price_usd']['weekly'];
 					$data['coinList'][$one['coin']]['monthlyRev']              = $coinData['last24Hours']['perNode']['values']['price_usd']['monthly'];
@@ -55,7 +55,7 @@ class coin extends Controller
 					$data['coinListOld'][$one['coin']]['coin_supply']        = $CMC['total_supply'];
 					$data['coinListOld'][$one['coin']]['percent_change_24h'] = $CMC['percent_change_24h'];
 					$data['coinListOld'][$one['coin']]['coinLocked']         = isset($coinData['totalMasterNodes']) ? $coinData['totalMasterNodes'] * $coinData['masterNodeCoinsRequired'] : 0;
-                    $data['coinListOld'][$one['coin']]['coinLockedPercent']  = isset($coinData['totalMasterNodes']) ? ($coinData['totalMasterNodes'] * $coinData['masterNodeCoinsRequired'] / $CMC['total_supply']) * 100 : 0;
+					$data['coinListOld'][$one['coin']]['coinLockedPercent']  = isset($coinData['totalMasterNodes']) ? ($coinData['totalMasterNodes'] * $coinData['masterNodeCoinsRequired'] / $CMC['total_supply']) * 100 : 0;
 					$data['coinListOld'][$one['coin']]['dailyRev']           = isset($coinData['income']) ? $coinData['income']['daily'] : 0;
 					$data['coinListOld'][$one['coin']]['weeklyRev']          = isset($coinData['income']) ? $coinData['income']['weekly'] : 0;
 					$data['coinListOld'][$one['coin']]['monthlyRev']         = isset($coinData['income']) ? $coinData['income']['monthly'] : 0;
@@ -83,7 +83,7 @@ class coin extends Controller
 		if ($type === 'coinSupply') $sort = 'coin_supply';
 		if ($type === 'totalMasterNodes') $sort = 'totalMasterNodes';
 		if ($type === 'coinsLocked') $sort = 'coinLocked';
-        if ($type === 'coinsLockedPercent') $sort = 'coinLockedPercent';
+		if ($type === 'coinsLockedPercent') $sort = 'coinLockedPercent';
 		if ($type === 'dailyRev') $sort = 'dailyRev';
 		if ($type === 'weeklyRev') $sort = 'weeklyRev';
 		if ($type === 'monthlyRev') $sort = 'monthlyRev';
