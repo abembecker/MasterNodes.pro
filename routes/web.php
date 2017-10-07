@@ -12,6 +12,20 @@
 */
 Route::group(
 	array('domain' => 'masternodes.pro'), function () {
+
+	Route::get('login', 'LoginController@showLoginPage');
+	Route::get('dashboard', 'LoginController@showDashBoard')
+		 ->middleware(['auth']);
+
+	Route::get('logout', 'LoginController@logout');
+
+	Route::get('login/{provider}', 'LoginController@auth')
+		 ->where(['provider' => 'twitter|slack']);
+
+	Route::get('login/{provider}/callback', 'LoginController@login')
+		 ->where(['provider' => 'twitter|slack']);
+
+
 	Route::get('/', array('uses' => 'coin@index'))->middleware('throttle:6');
 	Route::get('/sortActiveView', array('uses' => 'coin@sortActiveView'))->middleware('throttle:6');
 	Route::get('/active', array('uses' => 'coin@active'))->middleware('throttle:6');
@@ -22,7 +36,7 @@ Route::group(
 	Route::get('/donate/{coin}', array('uses' => 'coin@donateCoin'))->middleware('throttle:6');
 	Route::get('/callCoinAPIS', array('uses' => 'coin@callCoinAPIS'))->middleware('throttle:2');
 //Route::get('/CallCoinMarketCap', array('uses' => 'coin@CallCoinMarketCap'));
-	Route::get('/getPrice/{coin}', array('uses' => 'coin@GetPrice'))->middleware('throttle:2');
+	Route::get('/getPrice/{coin}', array('uses' => 'coin@GetPrice'))->middleware('throttle:10');
 //Route::get('/donateAPI', array('uses' => 'coin@donateCoinList'));
 	/*  Stats Pages */
 	Route::group(

@@ -26,9 +26,8 @@
                         <div class="col-sm-12 text-center">
                             <div class="mstr-spon-click">
                                 <h3>Want your Coin Listed here?</h3>
-                                <div>Email us:
-                                    <a href="mailto:addme@masternodes.pro">addme@masternodes.pro</a> or join us on
-                                    <a href="https://join.slack.com/t/masternodespro/shared_invite/MjM4NTczMzQyMDgzLTE1MDQ5NjEyMjEtYmFlOTVhMDVmZg"><i class="fa fa-slack" aria-hidden="true"></i>SLACK</a>
+                                <div>
+                                    <a href="https://goo.gl/forms/vz313NokCtnVD5Yk2" target="_blank">Click Here</a>
                                 </div>
                                 <br/>
                                 <br/>
@@ -38,15 +37,16 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mstr-coin-wrapper">
-                            @foreach ($coinList as $key => $one)
-                                @if(isset($one['ads']) && isset($one['ads']['location']) && $one['ads']['location'] === 'top')
-                                    @if ($one['ads']['start'] <= date("m/d/Y") && $one['ads']['end'] >= date("m/d/Y") && $one['ads']['type'] === 'list')
-                                        @include('main.layout.adsTopList')
-                                    @else
+                            {{--@foreach ($coinList as $key => $one)--}}
+                                {{--@if(isset($one['ads']) && isset($one['ads']['location']) && $one['ads']['location'] === 'top')--}}
+                                    {{--@if ($one['ads']['start'] <= date("m/d/Y") && $one['ads']['end'] >= date("m/d/Y") && $one['ads']['type'] === 'list')--}}
+                                        {{--@include('main.layout.adsTopList')--}}
+                                    {{--@else--}}
                                         @include('main.layout.adsTopListNone')
-                                    @endif
-                                @endif
-                            @endforeach</div>
+                                    {{--@endif--}}
+                                {{--@endif--}}
+                            {{--@endforeach--}}
+                        </div>
                         <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
                     </div>
                 </div>

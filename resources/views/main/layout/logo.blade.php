@@ -2,7 +2,23 @@
     <img src="/img/space_bg_image.jpg" alt="space background image">
 </div>
 <div class="row">
-    <div class="col-lg-5 col-md-5 hidden-sm hidden-xs"></div>
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+        <div>
+            <div class="text-center">
+                <div><a style="color:white" href="https://news.masternodes.pro" target="_blank"><i class="fa fa-newspaper-o" aria-hidden="true"></i> NEWS</a></div>
+                <div><a style="color:white" href="https://news.masternodes.pro/changelog/" target="_blank"><i class="fa fa-list-alt" aria-hidden="true"></i> ChangeLog</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+        <div>
+            <div class="text-center" style="color:white">
+                <div><a style="color:white" target="_blank" href="https://join.slack.com/t/masternodespro/shared_invite/enQtMjM4NTczMzQyMDgzLTllNjRhMTFiMjlkMWY3MjIyMGExYzFhMTk4MjM2MGYxNjI4YzY0ZWYyYmJhZTRlMTE0OGFmY2VmMzM3MTVjNGU"><i class="fa fa-slack" aria-hidden="true"></i> SLACK</a></div>
+                <div><a style="color:white" href="https://discord.gg/ju5AbMx" target="_blank"><img src="/img/Discord-Logo-White.svg" width="32px" height="32px"> DISCORD</a></div>
+                <div><a style="color:white" href="https://t.me/masternodespro" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i> TELEGRAM</a></div>
+            </div>
+        </div>
+    </div>
     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
         <div>
             <div class="text-center">
