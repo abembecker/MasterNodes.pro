@@ -116,7 +116,7 @@
 /*** END ACTIVE GRID ***/
 /*** START ADS TOP GRID ***/
 .mstr-ad-wrapper {
-  overflow: auto;
+  overflow: auto !important;
 }
 .ads-top-list-blade {
   letter-spacing: 1px;
