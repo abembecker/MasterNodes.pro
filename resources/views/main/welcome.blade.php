@@ -36,7 +36,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mstr-coin-wrapper">
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mstr-coin-wrapper mstr-ad-wrapper">
                             {{--@foreach ($coinList as $key => $one)--}}
                                 {{--@if(isset($one['ads']) && isset($one['ads']['location']) && $one['ads']['location'] === 'top')--}}
                                     {{--@if ($one['ads']['start'] <= date("m/d/Y") && $one['ads']['end'] >= date("m/d/Y") && $one['ads']['type'] === 'list')--}}

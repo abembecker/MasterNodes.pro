@@ -1,3 +1,4 @@
+@yellow: #eee530;
 @orange: #FF8B41;
 @blue: #1D82AD;
 @babyBlue: #4EBDE4;
@@ -7,6 +8,11 @@
 @white: #FFFFFF;
 @ice: #f0f8ff;
 @gray: #535353;
+@red: #D44836;
+
+.test{
+    border: 1px solid red;
+}
 
 .unica{
   font-family: 'Unica One', cursive;
@@ -20,9 +26,30 @@
   font-family: 'Exo', sans-serif;
 }
 
+.mstr-login-img{
+    width: 4em;
+    margin: 10px;
+}
+
+.mstr-login-img-lg{
+    width: 4em;
+    margin: 10px;
+}
+
+.mstr-login-link{
+    color: white;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
 .mstr-welcome-header {
     color: @green;
     border-bottom: 3px solid #78FEAB;
+    padding-bottom: 5px;
+}
+
+.mstr-welcome-header-no-border {
+    color: @green;
     padding-bottom: 5px;
 }
 
@@ -135,11 +162,30 @@
     }
 }
 
+.mstr-info-msg{
+    color: @blue;
+    .exo;
+}
+
+.mstr-warn-msg{
+    color: @yellow;
+    .exo;
+}
+
+.mstr-error-msg{
+    color: @red;
+    .exo;
+}
+
 /*** END ACTIVE GRID ***/
 
 
 
 /*** START ADS TOP GRID ***/
+
+.mstr-ad-wrapper{
+    overflow: auto;
+}
 
 .ads-top-list-blade{
     letter-spacing: 1px;
@@ -207,9 +253,10 @@
 }
 
 .mstr-coin-wrapper, .mstr-coming-soon-wrapper{
-  box-shadow: inset #6d6cab 1px 1px 6px;
-  border-radius: 31px;
-  padding: 1em 1em 2em 1em;
+    box-shadow: inset #6d6cab 1px 1px 6px;
+    border-radius: 16px;
+    padding: 1em 1em 2em 1em;
+    overflow: visible;
 }
 
 .mstr-spon-click{
@@ -266,11 +313,6 @@
     .exo;
 }
 
-.mstr-scroller{
-    height: 30em;
-    overflow: scroll;
-}
-
 .mstr-tag-icon{
     width: 4em;
     opacity: .9;
@@ -280,4 +322,192 @@
     display: none;
 }
 
+.mstr-tag-coin-cmd, .mstr-tag-coin-public{
+    margin-top: 2em;
+}
+
+.mstr-tag-next, .mstr-tag-submit{
+    margin-top: 1.5em;
+}
+
+
+
+
+.mstr-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+}
+
+.mstr-switch input {display:none;}
+
+.mstr-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.mstr-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .mstr-slider {
+    background-color: @gray;
+}
+
+input:focus + .mstr-slider {
+    box-shadow: 0 0 1px @blue;
+}
+
+input:checked + .mstr-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.mstr-slider.mstr-round {
+    border-radius: 34px;
+}
+
+.mstr-slider.mstr-round:before {
+    border-radius: 50%;
+}
+
+.mstr-slider-labels{
+    vertical-align: top;
+    margin: 3px 6px;
+}
+
+.mstr-new-tag-interface{
+    box-shadow: #6d6cab -12px -12px 61px;
+    border-radius: 10px;
+    padding: 4em 2em 5em 2em;
+}
+
+.smt-align-middle{
+    vertical-align: middle;
+}
+
+.mstr-tag-more{
+    margin: 1em 0em;
+}
+
+.mstr-tagit-coin-list{
+    margin: .75em;
+}
+
+.mstr-tagit-tagged-interface{
+    box-shadow: #3b3a5f -1px -1px 11px;
+    border-radius: 10px;
+    padding: 1em 2em 1em 0em;
+    margin: 5px 0em;
+    overflow: auto;
+}
+
+.mstr-tagit-coin-icon{
+    display: block;
+    margin-top: 1em;
+}
+
+.mstr-tagit-coin-name{
+    display: block;
+    margin-top: 2em;
+}
+
+.mstr-tagit-filter-input{
+    margin: 1em 0em;
+}
+
+.mstr-tagit-stats-expand{
+    a.mstr-expand-btn{
+        color: @white;
+        font-weight: bolder;
+    }
+}
+
+.mstr-tagit-pro-stats{
+    display: none;
+}
+
 /*** END TAG MY NODES ***/
+
+/*** START SUBSCRIPTION ***/
+
+.mstr-subscribe-page{
+    .exo;
+}
+
+.mstr-subscription-name{
+    vertical-align: middle;
+    .exo;
+    color: @purple;
+}
+
+.smt-tagit-subscribe{
+    margin-top: 0.5em;
+}
+
+.mstr-subscribe-special-offer{
+    font-weight: bolder;
+    color: @blue;
+}
+
+.mstr-benefit-list{
+    height: 20em;
+
+    li{
+        margin-top: 10px;
+    }
+}
+
+
+/*** END SUBSCRIPTION ***/
+
+
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+}
+
+@media only screen and (max-width : 767px) {
+
+}
+
+@media only screen and (max-width : 480px) {
+    .mstr-benefit-list{
+        height: auto;
+
+        li{
+            margin-top: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width : 320px) {
+    .mstr-benefit-list{
+        height: auto;
+
+        li{
+            margin-top: 10px;
+        }
+    }
+}
